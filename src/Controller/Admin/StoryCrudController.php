@@ -6,6 +6,8 @@ use App\Entity\Story;
 use DateTimeImmutable;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\EntityManagerInterface;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -32,6 +34,7 @@ class StoryCrudController extends AbstractCrudController
                 ->setTargetFieldName('title')
                 ->hideOnIndex(),
             TextEditorField::new('content')
+                ->setFormType(CKEditorType::class)
                 ->hideOnIndex(),
             AssociationField::new('category')
                 ->setQueryBuilder(function(QueryBuilder $queryBuilder) {
@@ -40,6 +43,12 @@ class StoryCrudController extends AbstractCrudController
             DateTimeField::new('createdAt')
                 ->hideOnForm(),
         ];
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
     }
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
