@@ -32,6 +32,11 @@ class Category
         $this->stories = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return $this->title ?? '';
+    }
+
     public function getId(): ?int
     {
         return $this->id;
