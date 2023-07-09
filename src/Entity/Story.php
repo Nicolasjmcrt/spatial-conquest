@@ -33,6 +33,15 @@ class Story
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $heroImg = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $addImg1 = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $addImg2 = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,6 +115,42 @@ class Story
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getHeroImg(): ?string
+    {
+        return $this->heroImg;
+    }
+
+    public function setHeroImg(string $heroImg): static
+    {
+        $this->heroImg = $heroImg;
+
+        return $this;
+    }
+
+    public function getAddImg1(): ?string
+    {
+        return $this->addImg1;
+    }
+
+    public function setAddImg1(string $addImg1): static
+    {
+        $this->addImg1 = $addImg1;
+
+        return $this;
+    }
+
+    public function getAddImg2(): ?string
+    {
+        return $this->addImg2;
+    }
+
+    public function setAddImg2(string $addImg2): static
+    {
+        $this->addImg2 = $addImg2;
 
         return $this;
     }

@@ -26,7 +26,8 @@ class CategoryCrudController extends AbstractCrudController
             IdField::new('id')
                 ->hideOnForm(),
             TextField::new('title'),
-            BooleanField::new('isActive'),
+            BooleanField::new('isActive')
+                ->renderAsSwitch(false),
             DateTimeField::new('createdAt')
                 ->hideOnForm(),
         ];

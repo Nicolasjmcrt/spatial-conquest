@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -32,6 +33,24 @@ class StoryCrudController extends AbstractCrudController
             TextField::new('title'),
             SlugField::new('slug')
                 ->setTargetFieldName('title')
+                ->hideOnIndex(),
+            TextField::new('subtitle'),
+            ImageField::new('hero_img')
+                ->setBasePath('uploads/img')
+                ->setUploadDir('public/uploads/img')
+                ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
+                ->setRequired(true),
+            ImageField::new('add_img1')
+                ->setBasePath('uploads/img')
+                ->setUploadDir('public/uploads/img')
+                ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
+                ->setRequired(true)
+                ->hideOnIndex(),
+            ImageField::new('add_img2')
+                ->setBasePath('uploads/img')
+                ->setUploadDir('public/uploads/img')
+                ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
+                ->setRequired(true)
                 ->hideOnIndex(),
             TextEditorField::new('content')
                 ->setFormType(CKEditorType::class)
