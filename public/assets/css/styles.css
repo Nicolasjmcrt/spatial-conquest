@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'B612', sans-serif; */
+    font-size: 18px;
+}
+
+.hero-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.hero-img {
+    width: 100%;
+    margin-top: 71px;
+    height: calc(100vh - 59px);
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+}
+
+.img-hero {
+    width: 100%;
+    height: calc(100vh - 59px);
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-h1 {
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    transform: translate(-10%, -80%);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: clamp(35px, 5vw, 75px);
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.page-hero-img {
+    position: relative;
+    margin-top: 71px;
+}
+
+.missions-h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px #000000;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(35px, 5vw, 50px);
+}
+
+.missions-p {
+    font-weight: 300;
+    font-size: clamp(17px, 3.5vw, 45px);
+    margin-bottom: 0;
+    padding-top: 15px;
+}

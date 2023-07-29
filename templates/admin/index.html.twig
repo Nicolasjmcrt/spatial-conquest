@@ -1,3 +1,21 @@
 {# templates/admin/index.html.twig #}
 
 {% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block title %}
+    History of the space conquest
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-6">
+            <h3>Latest Stories</h3>
+            <ul>
+                {% for story in latestStories %}
+                    <li>
+                        <a href="#">{{ story.title }} - {{ story.subtitle }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>{% endblock %}

@@ -2,15 +2,16 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
     #[Route('/', name: 'homepage')]
-    public function homepage(): Response
+    public function index(): Response
     {
-        return $this->render('main/homepage.html.twig');
+        return $this->render('main/homepage.html.twig', [
+        ]);
     }
 }

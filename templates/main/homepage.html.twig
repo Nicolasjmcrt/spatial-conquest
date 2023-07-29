@@ -4,6 +4,10 @@
 {% endblock %}
 
 {% block body %}
-    <h1>L'histoire de la Conquête Spatiale</h1>
-    <p>Link to : <a class="nav-link" href="{{ path('admin') }}">Admin</a></p>
+    <section class="container-fluid hero-container">
+        <div class="hero-img">
+            <img src="{{ asset('uploads/img/main/hero-img.webp') }}" alt="Space Conquest Hero Img" class="img-fluid img-hero">
+            <h1 class="hero-h1">L'histoire de la conquête spatiale</h1>
+        </div>    
+    </section>
 {% endblock %}                    
