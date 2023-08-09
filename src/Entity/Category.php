@@ -33,6 +33,9 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $heroImg = null;
+
     public function __construct()
     {
         $this->stories = new ArrayCollection();
@@ -134,6 +137,18 @@ class Category
     public function setImage(string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getHeroImg(): ?string
+    {
+        return $this->heroImg;
+    }
+
+    public function setHeroImg(string $heroImg): static
+    {
+        $this->heroImg = $heroImg;
 
         return $this;
     }

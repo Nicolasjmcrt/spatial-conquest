@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ category.title }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container-fluid hero-container">
+		<div class="page-hero-img d-flex justify-content-center">
+			<img src="{{ asset('uploads/img/categories/' ~ category.heroImg ) }}" alt="" class="img-fluid">
+			<h1 class="text-center missions-h1">{{ category.title }}</h1>
+		</div>
+		<div class="container">
+			<div class="col-12 col-lg-12 mx-auto">
+				<p class="missions-p my-3">Cette catégorie contient les différents évenements marquants ou personnages importants de la période : <span style="text-decoration: underline; font-style: italic;">{{ category.title }}</span>.</p>
+			</div>
+			<hr class="mt-5">
+		</div>
+		<div class="container">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="{{ path('homepage') }}">Home</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="{{ path('missions_index') }}">Space Missions</a>
+					</li>
+					<li class="breadcrumb-item active" aria-current="page">{{ category.title }}</li>
+				</ol>
+			</nav>
+			<div class="row row-cols-1 row-cols-md-3 g-4 mb-5 mt-3">
+				{% for story in stories %}
+					<div class="col">
+						<div class="card h-100 mb-5">
+							<img src="{{ asset('uploads/img/' ~ story.heroImg) }}" class="card-img-top" alt="{{ story.title }}">
+							<div class="card-body">
+								<h5 class="card-title">{{ story.title }}</h5>
+								<p class="card-text">{{ story.subtitle }}</p>
+								<a href="{{ path('stories_show', {slug:story.slug }) }}" class="btn btn-dark">Consulter l'article</a>
+							</div>
+							<div class="card-footer">
+								<small class="text-body-secondary">Ajouté le
+									{{ story.createdAt | format_datetime(locale='fr') }}</small>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

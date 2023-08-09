@@ -1,36 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Missions 
+{% block title %}Missions |
+	{{ parent() }}
 {% endblock %}
 
 {% block body %}
-    <section class="container-fluid hero-container">
-        <div class="page-hero-img d-flex justify-content-center">
+	<section class="container-fluid hero-container">
+		<div class="page-hero-img d-flex justify-content-center">
 			<img src="{{ asset('uploads/img/main/missions-hero.webp') }}" alt="" class="img-fluid">
 			<h1 class="text-center missions-h1">Space Missions</h1>
 		</div>
-        <div class="container">
+		<div class="container">
 			<div class="col-12 col-lg-10 mx-auto d-flex justify-content-center">
-				<p class="missions-p my-3">You can find here the different key periods in the history of the space conquest.</p>
+				<p class="missions-p my-3">Retrouvez ici les différentes périodes clés de l'histoire de la conquête spatiale.</p>
 			</div>
+			<hr class="mt-5">
 		</div>
-        <div class="container">
+		<div class="container">
 			<div class="row">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a href="{{ path('homepage') }}">Home</a>
+						</li>
+						<li class="breadcrumb-item active" aria-current="page">Space Missions</li>
+					</ol>
+				</nav>
 				{% for category in categories %}
 					<div class="col-12 col-lg-6 mx-auto my-3">
 						<div class="card h-100">
 							<img src="{{ asset('uploads/img/categories/' ~ category.image) }}" class="card-img-top" alt="...">
 							<div class="card-body">
 								<h3 class="card-title">{{ category.title|upper }}</h3>
-								<p class="card-text">Retrouvez dans cette catégorie la liste des
-									{{ category.title|lower }}
-								</p>
-								{# <a href="{{ path('category_list', {id: category.id }) }}" class="btn btn-primary plane-btn">Voir les {{ category.name|lower }}</a> #}
+								<a href="{{ path('missions_list', {id: category.id }) }}" class="btn btn-dark plane-btn justify-content-center d-flex">Consulter la période</a>
 							</div>
 						</div>
 					</div>
 				{% endfor %}
 			</div>
 		</div>
-    </section>
-{% endblock %}                    
+	</section>
+{% endblock %}

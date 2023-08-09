@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ story.title }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="container-fluid hero-container">
+		<div class="page-hero-img d-flex justify-content-center">
+			<img src="{{ asset('uploads/img/categories/' ~ story.category.heroImg ) }}" alt="" class="img-fluid">
+			{# <img src="{{ asset('uploads/images/main/hero-companies.webp') }}" alt="{{ plane.name }}" class="img-fluid"> #}
+			<h1 class="text-center missions-h1">{{ story.title }}</h1>
+		</div>
+		<div class="container my-5">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="{{ path('homepage') }}">Home</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="{{ path('missions_index') }}">Space Missions</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="{{ path('missions_list', {id: story.category.id }) }}">{{ story.category.title }}</a>	
+					</li>
+					<li class="breadcrumb-item active" aria-current="page">{{ story.title }} - {{ story.subtitle }}</li>
+				</ol>
+			</nav>
+			<hr class="mt-5 mb-5">
+			<div class="row d-flex align-items-center my-5">
+				<div class="col-12 col-md-6">
+					<p class="" style="text-decoration:underline; font-style:italic;">Catégorie :
+						{{ story.category.title }}</p>
+					<h2 class=" missions-h2">{{ story.title|upper }}</h2>
+					<p>Ajouté le {{ story.createdAt | format_datetime(locale='fr') }}</p>
+				</div>
+				<div class="col-12 col-md-6 mx-auto">
+					<img src="{{ asset('uploads/img/'~ story.heroImg) }}" alt="{{ story.title }}" style="border-radius: 20px;" class="img-fluid plane-show-img">
+				</div>
+			</div>
+			<hr class="mt-5 mb-5">
+			<div class="col-12">
+				<h3 style="text-decoration:underline; font-style:italic;" class="mb-4">{{ story.subtitle }}</h3>
+				<p class="text-wrap plane-show-p mb-5">{{ story.content|raw }}</p>
+				<hr class="mt-5 mb-5">
+			</div>
+			<div class="col-12 d-flex justify-content-around">
+				<img src="{{ asset('uploads/img/'~ story.addImg1) }}" alt="{{ story.title }}" style="border-radius: 20px; max-height: 500px;" class="img-fluid plane-show-img mb-3">
+				<img src="{{ asset('uploads/img/'~ story.addImg2) }}" alt="{{ story.title }}" style="border-radius: 20px; max-height: 500px" class="img-fluid plane-show-img mb-5">
+			</div>
+		</div>
+	</section>
+{% endblock %}

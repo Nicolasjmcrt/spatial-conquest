@@ -44,6 +44,11 @@ class CategoryCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads/img/categories')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(true),
+            ImageField::new('hero_img')
+                ->setBasePath('/uploads/img/categories')
+                ->setUploadDir('public/uploads/img/categories')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setRequired(true),
             BooleanField::new('isActive')
                 ->renderAsSwitch(false),
             DateTimeField::new('createdAt')

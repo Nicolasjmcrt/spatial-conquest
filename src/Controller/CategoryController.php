@@ -19,12 +19,12 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/category/{id}', name: 'list')]
+    #[Route('/{id}', name: 'list')]
     public function list(Category $category): Response
     {
         $stories = $category->getStories();
 
-        return $this->render('category/list.html.twig', [
+        return $this->render('missions/list.html.twig', [
             'category' => $category,
             'stories' => $stories,
         ]);
