@@ -31,8 +31,9 @@
 			<hr class="mt-5 mb-5">
 			<div class="row d-flex align-items-center my-5">
 				<div class="col-12 col-md-6">
-					<p class="" style="text-decoration:underline; font-style:italic;">Catégorie :
-						{{ story.category.title }}</p>
+					{# <p class="" style="text-decoration:underline; font-style:italic;">Catégorie :
+						{{ story.category.title }}</p> #}
+					<span class="badge text-bg-warning">{{ story.category.title }}</span>
 					<h2 class=" missions-h2">{{ story.title|upper }}</h2>
 					<p>Ajouté le {{ story.createdAt | format_datetime(locale='fr') }}</p>
 				</div>

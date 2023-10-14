@@ -62,7 +62,73 @@ body {
 
 .missions-p {
     font-weight: 300;
-    font-size: clamp(17px, 3.5vw, 45px);
+    font-size: clamp(17px, 3.5vw, 35px);
     margin-bottom: 0;
     padding-top: 15px;
+}
+
+.breadcrumb {
+    font-size: 16px;
+}
+
+.planet-hero-img {
+    margin-top: 71px;
+    position: relative;
+}
+
+.planet-hero {
+    width: 100%;
+    height: calc(80vh - 59px);
+    object-fit: cover;
+    object-position: center;
+}
+
+.planet-prez {
+    position: absolute;
+    top: 45%;
+    left: 9%;
+    transform: translate(-7%, -45%);
+}
+
+.planet-h1 {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: clamp(35px, 5vw, 75px);
+    text-shadow: 2px 2px 4px #000000;
+    padding-bottom: 10px;
+}
+
+.planet-p {
+    color: #FFFFFF;
+    font-weight: 300;
+    font-size: clamp(19px, 3.5vw, 20px);
+    text-shadow: 2px 2px 4px #000000;
+    width: 25%;
+}
+
+.data-div {
+    height: 85px;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    background-color: hsla(0, 0%, 0%, 0.50);
+}
+
+.data-question {
+    color: #F9825D;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.data-answer {
+    color: #FFFFFF;
+    font-weight: 300;
+    font-size: 21px;
+    margin-bottom: 0;
+}
+
+.planet-carousel {
+    background-color: #052a46;
+    height: 500px;
 }

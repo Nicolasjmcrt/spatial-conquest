@@ -75,7 +75,7 @@ class StoryCrudController extends AbstractCrudController
             ->setPageTitle(Crud::PAGE_EDIT, 'Edit Story')
             ->setPageTitle(Crud::PAGE_DETAIL, static function (Story $story) {
                 return sprintf('#%s %s', $story->getId(), $story->getTitle());
-            });;
+            });
     }
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void

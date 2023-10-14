@@ -3,9 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Story;
+use App\Entity\Planet;
 use App\Entity\Category;
-use App\Repository\CategoryRepository;
 use App\Repository\StoryRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -47,6 +48,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToUrl('Homepage', 'fas fa-home', $this->generateUrl('homepage'));
         yield Menuitem::linkToCrud('Chapters', 'fa-solid fa-book', Category::class);
         yield MenuItem::linkToCrud('Stories', 'fa-solid fa-shuttle-space', Story::class);
+        yield MenuItem::linkToCrud('Planets', 'fa-solid fa-earth-americas', Planet::class);
     }
 
     public function configureCrud(): Crud
